@@ -1,0 +1,30 @@
+<div>
+  <form (ngSubmit)="onSubmit()">
+  <input class="form-control" type="text" name="icep" placeholder="CEP" [(ngModel)]="icep"/>
+  <button class="btn btn-primary" role="button" type=submit>Procurar</button> - <button class="btn btn-secondary" type=submit>Listar</button>
+
+  </form>
+</div>
+
+
+<div id="ta">
+<table class="table" id="tab">
+  <thead>
+    <tr>
+      <th scope="col">CEP</th>
+      <th scope="col">BAIRRO</th>
+      <th scope="col">CIDADE</th>
+      <th scope="col">UF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{cep}}</td>
+      <td>{{bairro}}</td>
+      <td>{{localidade}}</td>
+      <td>{{uf}}</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>

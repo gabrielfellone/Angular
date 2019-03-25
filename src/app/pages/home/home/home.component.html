@@ -1,0 +1,29 @@
+<div class="jumbotron">
+  <h3 class="display-4">Verificar endereço</h3>
+  <p class="lead">Simples aplicação para verificar o endereço</p>
+  <hr class="my-4">
+  <p class="lead">
+    <a routerLink='../cep' class="btn btn-primary btn-lg" href="#" role="button">INSERIR CEP</a>
+  </p>
+</div>
+
+
+<form #formulario="ngForm" (ngSubmit)="submitMethod(formulario)">
+  <input ngModel name="nome" required/>
+  <input ngModel name="sobrenome"/>
+  <input ngModel name="idade"/>
+  <button class="btn btn-primary" role="button" type=submit>Teste Form</button>
+</form>
+
+<form [formGroup]="formulario2" (ngSubmit)="setSubmit()">
+
+  <div [ngClass]="funcaoClasse('nome')"  >
+  <input formControlName="nome"/>
+  <p class="esconder">Campo inválido{{this.formulario2.get('nome').errors?.pattern?.actualValue}} </p>
+  </div>
+
+  <input [ngClass]="funcaoClasse('sobrenome')"   formControlName="sobrenome"/>
+  <input [ngClass]="funcaoClasse('idade')"   formControlName="idade"/>
+
+  <button class="btn btn-primary" role="button" type=submit>Teste Form2</button>
+</form>

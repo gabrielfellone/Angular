@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TestjsonService } from './testjson.service';
 import { ViacepService } from './viacep.service';
+import { Router } from '@angular/router';
 
 
 
@@ -20,18 +20,18 @@ export class AppComponent implements OnInit  {
   lista3=[1,2,3,4];
 
   icep;
+  pipecep1;
 
-  cep;
-  logradouro;
-  complemento;
-  bairro;
-  localidad;
-  uf;
+  test1='test2';
 
 
+  novaTabela = document.createElement('table');
 
 
-  constructor(private cepjson: TestjsonService,private http:HttpClient,private viacep: ViacepService){}
+  //injecao de dependencia
+  constructor(private http:HttpClient,
+  private viacep: ViacepService,private router:Router ){}
+
 
   show(){
     this.mostrar = !this.mostrar;
@@ -39,24 +39,24 @@ export class AppComponent implements OnInit  {
 
   ngOnInit() {
 
-
   }
 
 onSubmit(){
-  this.viacep.chamada(this.icep).subscribe(
-    (res: any)=>{
-      this.bairro = res.bairro;
-      console.log(this.bairro);
-      this.cep = res.cep;
-      console.log(this.cep);
-      this.logradouro = res.logradouro;
-      console.log(this.logradouro);
-      this.uf = res.uf;
-      console.log(this.uf);
-    }
-  )
+
 }
 
+showAll(){
+
+}
+
+testOutput(tout){
+
+console.log(tout);
+
+
+
+
+}
 
 
 }

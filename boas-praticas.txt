@@ -1,0 +1,54 @@
+﻿padronizacao projeto angular
+
+html:
+
+- crítico - nao chumbar nenhuma palavra que aparece para o usuario, utilizar i18n
+- crítico - nunca utilizar o atributo style, manipular estilo somente pelo arquivo .css, .scss, sass
+- crítico - id's NUNCA podem ser iguais
+- médio - evitar utilizar diretiva ngIf preferencia por ngClass
+- médio - nao utilizar o id para manipular css
+- fraco - id's comecam com letra minuscula separa uma palavra da outra com a primeira letra em maiusculo (ex.: jeitoCerto)
+- fraco - classes sempre com letras minusculas separando uma palavra da outra por hifen (ex.: jeito-certo)
+- fraco -  variaveis utilizam modelo cammelcase (ex.: #jeitoCerto)
+- fraco - string entre aspas duplas
+
+ts:
+
+- crítico - nunca utilizar var, usar let ou const
+- crítico - requisicoes http SEMPRE sao feitas por servicos
+- crítico - sempre tratar erros de requisicao
+- crítico - utilizar arrow function ao inves de mudar o escopo (ex. certo: () => {}; ex. errado: function() {})
+- médio - organizar o conteúdo seguindo a ordem: importacoes, declaracao da classe, declaracao de variaveis com anotacoes, variaveis sem anotacoes, constructor, funcoes
+- médio - deixar o constructor vazio, a menos que seja injecao de dependencia, utilizar ngOnInit, a menos que a classe tenha um extends, assim colocar somente o super() dentro e mais nada
+- médio - selectors devem possuir nome composto separado por hifen e em letras minusculas (ex.: <jeito-certo>)
+- médio - não chumbar enderecos, utilizar o environment.ts
+- médio - metodos com o minimo de linhas possivel
+- médio - evitar ao maximo manipular o DOM, caso necessário utilizar o proprio angular com viewchild, elementref, renderer, etc.
+- médio - nao declarar variavel como any, se preciso utilizar interface
+- médio - utilizar tslint para ajudar nas boas praticas
+- médio - para metodos utilizados por muitos componentes criar um BaseComponent e extender nas classes que utilizarem esses metodos
+- médio - utilize o minimo de if's possivel
+- médio - utilizar operador ternario somente se ficar tudo em uma linha e nao exceder o limite de caracteres do lint
+- médio - evitar utilizar magic numbers (numeros usados varias vezes e nao atribuidos a nenhuma variavel) preferivel atribuir a uma variavel
+- fraco - utilizar formGroup ao inves de ngForm em formularios
+- fraco - nome das variaveis e metodos comecam sempre com letra minuscula e usam o formatado cammelcase (ex.: jeitoCerto)
+- fraco - nome das classes, interfaces, servicos, enums, etc. sempre comeca com letra maiuscula e usam o formatado cammelcase (ex.: JeitoCerto)
+- fraco - nas declaracoes de variavel sempre tipar elas e mostrar se é public, private, protected
+- fraco - nao atribuir valor a variaveis declaradas nas funcoes para recebimento de parametros (ex.: function(a = 1))
+
+module:
+
+- crítico - modularize o projeto
+- crítico - utilizar lazy loading
+- crítico - fazer um caminho de rotas intuitiva, onde fique facil do usuario se achar
+- crítico - criar em arquivo separado todas as rotas
+- crítico - criar em arquivo separado interceptors separados do NgModule
+- fraco - importacoes seguindo ordem pacotes do angular, modulos e componentes
+- fraco - utilizar index.ts para facilitar importacao
+
+pastas e arquivos:
+
+- crítico - sempre separar em pastas servicos, interfaces, componentes, comuns, autenticacao, pipes, etc
+- médio - nome do arquivo sem letra maiuscula e separando as palavras por hifen (ex.: jeito-certo.ts)
+- fraco - colocar um index.ts dentro de cada pasta mostrada acima para ajudar na importacao
+- fraco - mostrar o tipo dos arquivos colocando .tipo.ts em cada arquivo typescript (ex.: jeito-certo.service.ts)
